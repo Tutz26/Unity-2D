@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyController1 : MonoBehaviour
 {
 
-
+        public GameObject projectile;
+        private float timeCounter = 0f;
         public float fireDelay = 1f;
         private float maxPositionX = 1;
         private float minPositionX = 0;
@@ -28,6 +29,10 @@ public class EnemyController1 : MonoBehaviour
     {
 
 
+        //Timer counter
+        timeCounter += Time.deltaTime;
+
+        //POsitions
         maxPositionX = 1;
         minPositionX = 0;
 
@@ -56,8 +61,18 @@ public class EnemyController1 : MonoBehaviour
                 movingRight = true;
             }
 
+            
+
         }
         
+
+         if(timeCounter >= 1f){
+            Debug.Log("Enemy-Pew");
+            Instantiate(projectile, transform.position,  Quaternion.Euler(new Vector3(0, 0, 180)));
+            timeCounter = timeCounter % 1f;
+
+        }
+
 
     }
 }

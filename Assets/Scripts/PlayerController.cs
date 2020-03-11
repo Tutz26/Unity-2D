@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space)){
             Debug.Log("Pew");
             Instantiate(projectile, transform.position, transform.rotation);
+            //projectile.GetComponent<Projectile>().damageableTargetTag = "Enemy";
         }
 
     }
